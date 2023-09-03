@@ -1,0 +1,55 @@
+:root {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --text-color-dim: #3a3a3a;
+    --border-color: #3c3c3c;
+    --surface-color: #1a1a1a;
+    --on-surface-color: #ffffff;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+}
+
+buildn-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "toolbar toolbar toolbar"
+        "navigator main inspector"
+    ;
+    width: 100vw;
+    height: 100vh;
+}
+
+buildn-toolbar {
+    grid-area: toolbar;
+    border-bottom: 1px solid var(--border-color);
+    height: 32px;
+}
+
+buildn-navigator {
+    grid-area: navigator;
+}
+
+buildn-main {
+    grid-area: main;
+    border-inline: 1px solid var(--border-color);
+}
+
+buildn-inspector {
+    grid-area: inspector;
+}
