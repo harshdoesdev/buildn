@@ -4,6 +4,7 @@
     --text-color-dim: #3a3a3a;
     --border-color: #3c3c3c;
     --surface-color: #1a1a1a;
+    --surface-color-dim: #2b2b2b;
     --on-surface-color: #ffffff;
 }
 
@@ -23,6 +24,66 @@ body {
     font-family: sans-serif;
 }
 
+svg:not([fill]), svg *:not([fill]) {
+    fill: currentColor
+}
+
+.heading {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.heading.is-small {
+    font-size: 1rem;
+}
+
+.heading.is-large {
+    font-size: 1.5rem;
+}
+
+.bar {
+    display: flex;
+    padding: 1rem;
+}
+
+.bar.with-separator {
+    border-bottom: 1px solid var(--border-color);
+}
+
+button {
+    display: flex;
+    appearance: none;
+    background: transparent;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+}
+
+button.has-icon {
+    gap: .25rem;
+    align-items: center;
+}
+
+button.has-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+button.bar-button {
+    width: 100%;
+    padding: .25rem;
+}
+
+button.bar-button:hover {
+    background-color: var(--surface-color-dim);
+}
+
 buildn-container {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
@@ -38,7 +99,6 @@ buildn-container {
 buildn-toolbar {
     grid-area: toolbar;
     border-bottom: 1px solid var(--border-color);
-    height: 32px;
 }
 
 buildn-navigator {
@@ -52,4 +112,8 @@ buildn-main {
 
 buildn-inspector {
     grid-area: inspector;
+}
+
+.justify-end {
+    justify-content: flex-end;
 }

@@ -1,16 +1,17 @@
 const template = document.createElement('template');
 
 template.innerHTML = `
-    <div class="bar">
-        <h1 class="heading is-small">buildn</h1>
+    <div>
+        <slot />
     </div>
 `;
 
-class BuildnToolbar extends HTMLElement {
+class BuildnMain extends HTMLElement {
     #hasRendered = false
 
     constructor() {
         super();
+        this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
@@ -22,11 +23,11 @@ class BuildnToolbar extends HTMLElement {
             return;
         }
 
-        this.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
 
         this.#hasRendered = true;
     }
 
 }
 
-customElements.define('buildn-toolbar', BuildnToolbar);
+customElements.define('buildn-main', BuildnMain);
